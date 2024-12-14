@@ -16,7 +16,7 @@ function App() {
   const handleInputChange = (value: string) => {
     setState("idle");
     setInputValue(value);
-    setRotation(0);
+    setRotation(currentRotationOffset);
   };
 
   const [statusText, setStatusText] = useState(DEFAULT_TEXT);
@@ -35,7 +35,7 @@ function App() {
     setStatusText("*drum roll*");
     const pickWinner = () => Math.floor(Math.random() * options.length);
     let winnerIndex = 0;
-    if (divineIntervention) {
+    if (divineIntervention && options.length > 1) {
       while (winnerIndex === 0) {
         winnerIndex = pickWinner();
       }
@@ -67,7 +67,11 @@ function App() {
         onClick={spinTheWheel}
         disabled={inputValue.length === 0 || state === "spinning"}
       />
-      <OptionsInput inputValue={inputValue} setInputValue={handleInputChange} />
+      <OptionsInput
+        inputValue={inputValue}
+        setInputValue={handleInputChange}
+        disabled={state === "spinning"}
+      />
     </div>
   );
 }

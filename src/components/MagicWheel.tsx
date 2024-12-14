@@ -120,7 +120,7 @@ function MagicWheel({
         ref={canvasRef}
         style={{
           transform: `rotate(${rotation}deg)`,
-          transitionDuration: `${duration}ms`,
+          transitionDuration: `${spinning ? duration : 0}ms`,
         }}
       />
       <div className={classes.pointer} />

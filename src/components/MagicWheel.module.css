@@ -1,0 +1,41 @@
+.container {
+  position: relative;
+  width: 320px;
+  height: 320px;
+}
+
+.pointer {
+  position: absolute;
+  top: -10px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 0;
+  height: 0;
+  border-left: 10px solid transparent;
+  border-right: 10px solid transparent;
+  border-top: 60px solid gold;
+  border-radius: 4px;
+}
+
+.pointer::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 50%;
+  transform: translate(-50%, calc(-100% - 9px));
+  width: 0;
+  height: 0;
+  border-left: 6px solid transparent;
+  border-right: 6px solid transparent;
+  border-top: 48px solid white;
+  border-radius: 4px;
+}
+
+.canvas {
+  width: 320px;
+  height: 320px;
+}
+
+.canvas.animate {
+  transition: transform 5s cubic-bezier(0.15, 0.9, 0.05, 0.999);
+}

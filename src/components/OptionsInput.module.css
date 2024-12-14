@@ -1,0 +1,9 @@
+.textarea {
+  display: block;
+  width: 100%;
+  border-radius: 12px;
+  border: 1px solid #ccc;
+  padding: 6px 8px;
+  font-size: 16px;
+  font-family: inherit;
+}
